@@ -1,39 +1,68 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>우리 반 관리 홈페이지</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>우리 반 스마트 학급 명부</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- 세련된 글꼴(Pretendard) 적용 -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
 </head>
 <body>
+    <div class="app-container">
+        <!-- 상단 헤더 -->
+        <header class="app-header">
+            <div class="header-content">
+                <span class="badge">2026학년도</span>
+                <h1>✨ 우리 반 스마트 명부</h1>
+                <p>학생들의 소중한 꿈과 정보를 기록하는 공간입니다.</p>
+            </div>
+        </header>
 
-  <header>
-    <h1>📚 우리 반 관리 홈페이지</h1>
-    <p>학생 정보를 등록해보세요!</p>
-  </header>
+        <main class="app-main">
+            <!-- 왼쪽: 학생 등록 카드 -->
+            <section class="form-container">
+                <div class="card-header">
+                    <h2>🌱 새 학생 등록</h2>
+                </div>
+                <form id="student-form">
+                    <div class="input-group">
+                        <label for="student-name">이름</label>
+                        <input type="text" id="student-name" placeholder="이름을 입력하세요" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="student-info">한 줄 정보 및 역할</label>
+                        <textarea id="student-info" rows="3" placeholder="예: 1분기 반장 / 수학 멘토링 참여 중" required></textarea>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>학생 사진</label>
+                        <div class="file-upload-box">
+                            <input type="file" id="student-photo" accept="image/*" required>
+                            <label for="student-photo" class="file-label">
+                                <span class="upload-icon">📸</span>
+                                <span class="upload-text">사진 선택하기</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn-submit">학급 명부에 추가</button>
+                </form>
+            </section>
 
-  <main>
+            <!-- 오른쪽: 학생 목록 보기 -->
+            <section class="list-container">
+                <div class="list-header">
+                    <h2>📋 우리 반 명단 <span class="count-badge"><span id="student-count">0</span>명</span></h2>
+                </div>
+                <div id="student-grid" class="student-grid">
+                    <!-- JavaScript로 추가된 학생 카드가 여기에 들어갑니다 -->
+                </div>
+            </section>
+        </main>
+    </div>
 
-    <section class="form-section">
-      <h2>학생 등록</h2>
-
-      <input type="text" id="studentName" placeholder="학생 이름">
-
-      <textarea id="studentText" placeholder="학생 소개 또는 메모"></textarea>
-
-      <input type="file" id="studentImage" accept="image/*">
-
-      <button onclick="addStudent()">등록하기</button>
-    </section>
-
-    <section>
-      <h2>학생 목록</h2>
-      <div id="studentList" class="student-list"></div>
-    </section>
-
-  </main>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
